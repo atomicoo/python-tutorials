@@ -10,7 +10,7 @@ setuptools.setup(
     version="1.0",
     author="Atomicoo",
     author_email="atomicoo95@gmail.com",
-    description="基于Python的简化版Python解释器，参考Byterun",
+    description="基于Python的简化版Python解释器，参考Byterun实现。",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/atomicoo/python_tutorials/FUNNY/sByterun",

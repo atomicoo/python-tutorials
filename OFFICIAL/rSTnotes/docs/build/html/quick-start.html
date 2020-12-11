@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>快速指南 &#8212; rSTnotes 1.0.0 文档</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="Welcome to rSTnotes’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="header-n3">
+<span id="id1"></span><h1>快速指南<a class="headerlink" href="#header-n3" title="永久链接至标题">¶</a></h1>
+<div class="section" id="header-n4">
+<span id="id2"></span><h2>概念<a class="headerlink" href="#header-n4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>标记元素分两种：指令（Directives）和角色（Role），指令是块级元素，像段落一样使用。角色是行内元素，可以写在普通文本之中</p></li>
+<li><p>指令和它要包含的内容之间需要一个空行</p></li>
+<li><p>几组特殊符号：反斜杠 <code class="docutils literal notranslate"><span class="pre">\</span></code>、反引号、点号 <code class="docutils literal notranslate"><span class="pre">.</span></code>、冒号 <code class="docutils literal notranslate"><span class="pre">:</span></code> 和空格</p></li>
+<li><p>空行、空格和缩进都是有意义的，与 Python 相同，reStructuredText
+讲究对齐缩进</p></li>
+<li><p>每级缩进推荐用 4 个空格</p></li>
+<li><p>块级元素可以用缩进来嵌套，除了标题（标题是一种特殊的块级元素，不能放在缩进的文本中）</p></li>
+<li><p>行内元素虽然有些可以嵌套，但极不推荐</p></li>
+</ul>
+</div>
+<div class="section" id="header-n20">
+<span id="id3"></span><h2>标题<a class="headerlink" href="#header-n20" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>一级标题在标题文本的第二行使用 <code class="docutils literal notranslate"><span class="pre">#</span></code> 标记</p></li>
+<li><p>二级以后标题分别用 <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">+</span> <span class="pre">=</span> <span class="pre">:</span> <span class="pre">-</span></code>，通常不需要那么多级</p></li>
+<li><p>标题递进必须按顺序，即一级标题的下一级只能是二级标题</p></li>
+<li><p>原则上标题的标记长度至少与标题等长（指字符长度），也可以超过</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">一级标题</span>
+<span class="gh">#######</span>
+
+<span class="gh">二级标题</span>
+<span class="gh">*******</span>
+
+<span class="gh">三级标题</span>
+<span class="gh">+++++++</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n31">
+<span id="id4"></span><h2>段落<a class="headerlink" href="#header-n31" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>段落必须使用一个空行加以区分，否则会被折叠到上一行</p></li>
+<li><p>直接换行在渲染之后是不会真正换行的，只会自动增加一个空格</p></li>
+<li><p>在行尾添加反斜杠 <code class="docutils literal notranslate"><span class="pre">\</span></code> 可以避免自动添加空格</p></li>
+<li><p>段内换行使用竖线 <code class="docutils literal notranslate"><span class="pre">|</span></code> +空格开头（注意竖线后要有空格）</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>第一个段落。
+
+第二个段落。
+
+第三个段落。
+直接换行。\
+添加反斜杠。
+
+<span class="o">|</span> 第四个段落。
+<span class="o">|</span> 段内换行。
+<span class="o">|</span> 不常用，这种情况使用列表更合适。
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n42">
+<span id="id5"></span><h2>列表<a class="headerlink" href="#header-n42" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>使用星号 <code class="docutils literal notranslate"><span class="pre">*</span></code> +空格表明本行是无序列表项，会被渲染为一个圆点</p></li>
+<li><p>同级列表项之间可以空行，不会打断</p></li>
+<li><p>换一个列表符号，列表就会被打断</p></li>
+<li><p>无序列表符号除了星号 <code class="docutils literal notranslate"><span class="pre">*</span></code> 外，可以是加号 <code class="docutils literal notranslate"><span class="pre">+</span></code>、减号 <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
+<li><p>井号 <code class="docutils literal notranslate"><span class="pre">#</span></code> + 点号 <code class="docutils literal notranslate"><span class="pre">.</span></code> +
+空格表明本行是有序列表项，会被渲染为数字，且自动递增</p></li>
+<li><p>嵌套列表，第一个子项要与父项相邻，不要空行</p></li>
+<li><p>列表项中可以写段落，只需要缩进对齐，语法是“递归”的</p></li>
+<li><p>最后一个子项或列表段落最后一行要与后面的父项通过空行隔开</p></li>
+<li><p>列表项间插入其他元素会打断列表</p></li>
+<li><p>有序列表除了使用井号 <code class="docutils literal notranslate"><span class="pre">#</span></code>
+外，也可以使用数字或字母（“手动”序号），记得加上点号 <code class="docutils literal notranslate"><span class="pre">.</span></code> 和空格</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">*</span> 无序第一项
+<span class="m">*</span> 无序第二项
+
+<span class="m">*</span> 无序第三项
+     <span class="m">*</span> 无序第三项，第一子项
+
+<span class="m">+</span> 新无序第一项（换列表符号，打断）
+
+<span class="m">#.</span> 有序第一项
+     <span class="m">#.</span> 有序第一项，第一子项
+
+<span class="m">#.</span> 有序第二项。
+     列表项写入段落。
+
+     对齐缩进即可。
+
+其他元素
+
+<span class="m">#.</span> 新有序第一项（插其他元素，打断）
+
+<span class="m">1.</span> 手动序号 1
+<span class="m">2.</span> 手动序号 2
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n65">
+<span id="id6"></span><h2>超链接<a class="headerlink" href="#header-n65" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>直接粘贴网址，两端用空格隔开。示例：<code class="docutils literal notranslate"><span class="pre">https://atomicoo.com</span></code></p></li>
+<li><p>可以用反斜杠 <code class="docutils literal notranslate"><span class="pre">\</span></code> 取消两端空格的显示</p></li>
+<li><p>锚文本显示链接需要使用反引号、尖括号 <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> 和下划线
+<code class="docutils literal notranslate"><span class="pre">_</span></code>。示例：<code class="docutils literal notranslate"><span class="pre">`atomicoo.com</span> <span class="pre">&lt;https://atomicoo.com&gt;</span></code>_`</p></li>
+<li><p>尖括号包裹网址，反引号包裹转换内容，下划线标志转换为链接，reStructuredText
+中有很多种链接都是以下划线结尾</p></li>
+<li><p>每一级标题都是一个锚，因此可以创建跳转链接，即页内锚文本</p></li>
+<li><p>页内锚文本显示链接需要使用下划线
+<code class="docutils literal notranslate"><span class="pre">_</span></code>、反引号。示例：<code class="docutils literal notranslate"><span class="pre">`这是页内的某个标题</span></code>_`，若标题本身没有空格则反引号可以省略（不建议）</p></li>
+<li><p>因此，超链接最佳实践：<a href="#id7"><span class="problematic" id="id8">:literal:`\\ `about link`_</span></a>\`</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>网址超链接：\ https://atomicoo.com\
+
+锚文本超链接：\ <span class="s">`atomicoo.com </span><span class="si">&lt;https://atomicoo.com&gt;</span><span class="s">`_</span>\
+
+页内锚文本超链接：\ <span class="s">`快速指南`_</span>\
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n82">
+<span id="id9"></span><h2>代码<a class="headerlink" href="#header-n82" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>行内代码使用两对反引号包裹，两端用空格隔开。示例：<code class="docutils literal notranslate"><span class="pre">``source</span> <span class="pre">code</span></code>``</p></li>
+<li><p>行内标记的嵌套容易造成混乱，建议使用原始文本块（任何标记都不会被转换，随便写）</p></li>
+<li><p>原始文本块使用两个连续的英文 <code class="docutils literal notranslate"><span class="pre">::</span></code>
+来标记，之后跟空行，内容要缩进，再以空行结束</p></li>
+<li><p>块级代码使用 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code::</span> <span class="pre">language</span></code> 来标记，当不标记程序语言名
+<code class="docutils literal notranslate"><span class="pre">language</span></code> 时，<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code::</span></code> 与原始文本块 <code class="docutils literal notranslate"><span class="pre">::</span></code> 是基本一样的</p></li>
+<li><p>语言支持列表：<a class="reference external" href="http://www.bary.com/goto/t/aHR0cDovL3B5Z21lbnRzLm9yZy9sYW5ndWFnZXMv/?title=Pygments+Supported+Languages">Pygments Supported
+Languages</a></p></li>
+<li><p>更多详细用法：<a class="reference external" href="http://www.bary.com/goto/t/aHR0cDovL3B5Z21lbnRzLm9yZy9kb2NzL2xleGVycy8=/?title=Pygments+Lexers">Pygments
+Lexers</a></p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>行内代码：<span class="s">``source code``</span>
+
+原始文本块：
+
+<span class="se">::</span>
+
+<span class="s">     原始文本块内的任何标记都不会被转换：\ `快速指南`_\</span>
+
+块级代码：
+
+<span class="p">..</span> <span class="ow">code</span><span class="p">::</span> <span class="k">python</span>
+
+    <span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n97">
+<span id="id10"></span><h2>斜体与粗体<a class="headerlink" href="#header-n97" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>斜体使用一对星号 <code class="docutils literal notranslate"><span class="pre">*</span></code> 包裹</p></li>
+<li><p>粗体使用两对星号 <code class="docutils literal notranslate"><span class="pre">*</span></code> 包裹</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>这是<span class="ge">*斜体*</span>
+这是<span class="gs">**粗体**</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n104">
+<span id="id11"></span><h2>引用<a class="headerlink" href="#header-n104" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>引用纯文本，直接使用原始文本块 <code class="docutils literal notranslate"><span class="pre">::</span></code> 即可</p></li>
+<li><p>想在引用里使用 reStructuredText 语法，删除 <code class="docutils literal notranslate"><span class="pre">::</span></code> 保留缩进</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>使用\ <span class="gs">**语法**</span>\ 的引用
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n111">
+<span id="id12"></span><h2>图片<a class="headerlink" href="#header-n111" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>图片是块级元素，不能嵌入行内，需要自成段落</p></li>
+<li><p>图片使用 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">image::</span></code> 标记，与块级代码语法类似</p></li>
+<li><p>行内图片，譬如表情，需要一些高阶技巧</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>本地图片：
+
+<span class="p">..</span> <span class="ow">image</span><span class="p">::</span> /path/to/example.jpg
+
+网络图片：
+
+<span class="p">..</span> <span class="ow">image</span><span class="p">::</span> https://domain.com/path/to/example.jpg
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n120">
+<span id="id13"></span><h2>表格<a class="headerlink" href="#header-n120" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>reStructuredText 提供多种列表实现方法</p></li>
+<li><p>列表表格，通过创建一组嵌套的列表来渲染成表格</p></li>
+<li><p>父项是行，子项是列，每行列数必须一致，不支持合并单元格</p></li>
+<li><p>可以使用 <code class="docutils literal notranslate"><span class="pre">:header-rows:</span></code> 为列表表格添加标题行</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+     <span class="nc">:header-rows:</span> 1
+
+     <span class="m">*</span> - h00
+       <span class="m">-</span> h01
+       <span class="m">-</span> h02
+     <span class="m">*</span> - a10
+       <span class="m">-</span> a11
+       <span class="m">-</span> a12
+     <span class="m">*</span> -
+       <span class="m">-</span> a21
+       -
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n131">
+<span id="id14"></span><h2>彩蛋<a class="headerlink" href="#header-n131" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>在文档开头或结尾添加以下语句，可以定义一个短字符 <code class="docutils literal notranslate"><span class="pre">res</span></code> 用于替换
+<code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code>，使用时只需 <code class="docutils literal notranslate"><span class="pre">|res|</span></code> 即可</p></li>
+</ul>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">|rst|</span> <span class="ow">replace</span><span class="p">::</span> reStructuredText
+</pre></div>
+</div>
+</div>
+<div class="section" id="header-n136">
+<span id="id15"></span><h2>其他资源<a class="headerlink" href="#header-n136" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">RestructuredText
+primer</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/virhuiai/article/details/105833480">RestructuredText 初级读本 -
+中英文对照</a></p></li>
+<li><p><a class="reference external" href="http://www.bary.com/goto/t/aHR0cDovL2RvY3V0aWxzLnNvdXJjZWZvcmdlLm5ldC9kb2NzL3JlZi9yc3QvcmVzdHJ1Y3R1cmVkdGV4dC5odG1s/?title=reStructuredText+on+SourceForge">reStructuredText on
+SourceForge</a></p></li>
+</ul>
+<span class="target" id="header-n144"></span></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">rSTnotes</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">reStructuredText 入门:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">快速指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#header-n4">概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n20">标题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n31">段落</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n42">列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n65">超链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n82">代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n97">斜体与粗体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n104">引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n111">图片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n120">表格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n131">彩蛋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-n136">其他资源</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">Welcome to rSTnotes’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Atomicoo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/quick-start.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

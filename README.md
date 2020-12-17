@@ -20,7 +20,7 @@ How to play with Python ?
 
 </details>
 
-<details>
+<details open>
 <summary>Learning</summary>
 
 * Closure in Python [[source](https://app.yinxiang.com/shard/s64/nl/20318504/c792e558-7f1a-4258-bc3f-de7aa91e86cd)] [[code](https://github.com/atomicoo/python-tutorials/blob/master/LEARNING/CLOSURE.ipynb)]
@@ -31,7 +31,7 @@ How to play with Python ?
 
 </details>
 
-<details>
+<details open>
 <summary>Just For Fun</summary>
 
 * A Python Interpreter Written in Python [[source](https://app.yinxiang.com/shard/s64/nl/20318504/391dd303-4227-453e-8fa4-dcb20e39da1b)] [[code](https://github.com/atomicoo/python-tutorials/tree/master/FUNNY/sByterun)]
